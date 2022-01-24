@@ -13,7 +13,7 @@ Main features:
 - MQTT broker agnostic
 - Fully backward compatibility with the standard MQTT
 
-For more information about the **la-mqtt**' operations and performance, please refer to the scientific article below:
+For detailed information about the **la-mqtt**'s operations and performance, please refer to the scientific article below:
 
 Federico Montori, Lorenzo Gigli, Luca Sciullo, Marco Di Felice, *LA-MQTT: Location-aware publish-subscribe communications for the Internet of Things*, submitted for publication in the 
 ACM Transactions on Internet of Things (TIOT), 2021.
