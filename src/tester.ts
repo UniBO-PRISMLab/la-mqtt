@@ -13,6 +13,12 @@ export class Tester implements MQTTReceiver {
     private static BOLOGNA_RIGHT_CORNER_LAT:number=44.50715706370573;
     private static BOLOGNA_RIGHT_CORNER_LONG:number=11.362781524658203;
 
+    //TBF
+    private static MQTT_USERNAME:string="XXX";
+    private static MQTT_PASSWORD:string="XXX";
+    private static MQTT_URL:string="XXX";
+
+
     private client: SpatialMQTTClient;
     private backend: SpatialMQTTBackEnd;
     private simConfig: SimConfig;
@@ -161,8 +167,8 @@ export class Tester implements MQTTReceiver {
 
 
     public async singleRun(numUsers: number, seed: number, numgeofence: number, geofenceSize: number, privacyModel: PrivacyModel, digit: number, numdummy: number, frequency: number, selfTune: boolean, alpha: number, exploration: number) {
-	this.backend=new SpatialMQTTBackEnd("iot2020","mqtt2020*","mqtt://iot2020.cs.unibo.it",1883);    
-	//this.backend=new SpatialMQTTBackEnd("campari","campari","mqtt://137.204.143.90",1883);
+	
+	this.backend=new SpatialMQTTBackEnd(Tester.MQTT_USERNAME,Tester.MQTT_PASSWORD,Tester.MQTT_URL,1883);    
         this.buildSimConfiguration(numUsers, seed, numgeofence, geofenceSize, privacyModel, digit, numdummy, frequency, selfTune, alpha, exploration);
         this.sim=new Simulator(this.simConfig, this.backend);
 

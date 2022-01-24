@@ -20,12 +20,19 @@ export class SimulatedGeofence {
     private sMQTTClient: SpatialMQTTClient;
     private evaluator: SimEvaluator;
     
+    //TBF
+    private static MQTT_USERNAME:string="XXX";
+    private static MQTT_PASSWORD:string="XXX";
+    private static MQTT_URL:string="XXX"; 
+
+
+
     public constructor(id: string, topic: string, frequency: number) {
        this.id=id;
        this.topic=topic;
        this.lastAdvSent=undefined;
        this.frequencyAdv=frequency;
-       this.sMQTTClient=new SpatialMQTTClient("iot2020","mqtt2020*","mqtt://iot2020.cs.unibo.it",1883,this.id);
+       this.sMQTTClient=new SpatialMQTTClient(SimulatedGeofence.MQTT_USERNAME,SimulatedGeofence.MQTT_PASSWORD,SimulatedGeofence.MQTT_URL,1883,this.id);
     }
 
 

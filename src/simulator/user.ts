@@ -35,6 +35,11 @@ export class SimulatedUser implements MQTTReceiver {
 
     private verboseMode: boolean;
 
+      //TBF
+    private static MQTT_USERNAME:string="XXX";
+    private static MQTT_PASSWORD:string="XXX";
+    private static MQTT_URL:string="XXX";
+
     constructor(id: string, maxSpeed: number, minSpeed: number, pauseTime: number, frequency: number, privacyModel: PrivacyModel, privacyParameters: string, scenario: Scenario) {
         this.id=id;
         this.maxSpeed=maxSpeed;
@@ -45,10 +50,8 @@ export class SimulatedUser implements MQTTReceiver {
         this.lastGPSPublish=undefined;
         this.evaluator=undefined;
         this.cState=MobilityState.IDLE;
-	this.sMQTTClient=new SpatialMQTTClient("iot2020","mqtt2020*","mqtt://iot2020.cs.unibo.it",1883,this.id);    
-	//this.sMQTTClient=new SpatialMQTTClient("campari","campari","mqtt://137.204.143.90",1883,this.id);
+	this.sMQTTClient=new SpatialMQTTClient(SimulatedUser.MQTT_USERNAME,SimulatedUser.MQTT_PASSWORD,SimulatedUser.MQTT_URL,1883,this.id);    
         
-	//this.sMQTTClient=new SpatialMQTTClient("iot2020","mqtt2020*","mqtt://iot2020.cs.unibo.it",1883,this.id);
         this.pManager=undefined;
         this.setPrivacyModel(privacyModel, privacyParameters);
     }
